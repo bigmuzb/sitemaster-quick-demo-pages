@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aquatic One | Design. Engineer. Deliver.</title>
+<link rel="icon" href="https://www.aquatic.one/wp-content/uploads/2017/06/cropped-A1Icon.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --navy:#0a2a43;--navy-2:#0e3a5c;--ocean:#0e5c8a;--aqua:#19b5c9;--aqua-bright:#36d0e2;
+  --mist:#eef4f8;--ink:#14242f;--slate:#5c7184;--line:#dde7ee;--white:#fff;
+  --font-head:'Space Grotesk',system-ui,sans-serif;--font-body:'Inter',system-ui,sans-serif;
+  --maxw:1200px;--gutter:clamp(1.25rem,4vw,3rem);--radius:4px;--bg-base:#e7eef4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--font-body);color:var(--ink);background:var(--bg-base);line-height:1.6;-webkit-font-smoothing:antialiased}
+.site-bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.cloud{position:absolute;border-radius:50%;will-change:transform}
+.cloud-1{width:60vw;height:60vw;left:-12vw;top:-12vw;background:radial-gradient(circle,rgba(25,181,201,.18),rgba(25,181,201,0) 70%);animation:drift1 42s ease-in-out infinite alternate}
+.cloud-2{width:72vw;height:72vw;right:-16vw;top:18vh;background:radial-gradient(circle,rgba(14,92,138,.16),rgba(14,92,138,0) 70%);animation:drift2 55s ease-in-out infinite alternate}
+.cloud-3{width:52vw;height:52vw;left:18vw;bottom:-18vw;background:radial-gradient(circle,rgba(54,208,226,.13),rgba(54,208,226,0) 70%);animation:drift3 48s ease-in-out infinite alternate}
+.bg-schematic{position:absolute;left:50%;top:50%;width:132vw;transform:translate(-50%,-50%);color:var(--navy);opacity:.05}
+.bg-schematic svg{width:100%;height:auto}
+@keyframes drift1{from{transform:translate3d(0,0,0)}to{transform:translate3d(8vw,6vh,0)}}
+@keyframes drift2{from{transform:translate3d(0,0,0)}to{transform:translate3d(-10vw,4vh,0)}}
+@keyframes drift3{from{transform:translate3d(0,0,0)}to{transform:translate3d(6vw,-8vh,0)}}
+@media(prefers-reduced-motion:reduce){.cloud,.hero-glow span{animation:none!important}}
+h1,h2,h3,h4{font-family:var(--font-head);line-height:1.1;font-weight:600;letter-spacing:-.01em;margin:0}
+p{margin:0}a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
+.container{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gutter)}
+.section{padding-block:clamp(3.5rem,8vw,7rem);background:rgba(255,255,255,.42)}
+.section--mist{background:rgba(228,238,245,.55)}
+.section--navy{background:var(--navy);color:var(--white)}
+.eyebrow{font-family:var(--font-head);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--aqua);display:inline-flex;align-items:center;gap:.6rem;margin-bottom:1.25rem}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+.h-display{font-size:clamp(2.4rem,6vw,4.5rem)}
+.h-xl{font-size:clamp(1.9rem,4vw,3rem)}
+.lead{font-size:clamp(1.1rem,1.6vw,1.35rem);color:var(--slate);max-width:60ch}
+.section--navy .lead{color:rgba(255,255,255,.75)}
+.btn{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--font-head);font-size:.95rem;font-weight:500;padding:.85rem 1.5rem;border-radius:var(--radius);border:1px solid transparent;transition:transform .15s ease,background .2s ease,color .2s ease,border-color .2s ease;cursor:pointer}
+.btn:hover{transform:translateY(-2px)}
+.btn--primary{background:var(--aqua);color:var(--navy)}
+.btn--primary:hover{background:var(--aqua-bright)}
+.btn--ghost{border-color:rgba(255,255,255,.35);color:var(--white)}
+.btn--ghost:hover{border-color:var(--aqua);color:var(--aqua)}
+.btn--dark{background:var(--navy);color:var(--white)}
+.btn--dark:hover{background:var(--navy-2)}
+.btn .arrow{transition:transform .2s ease}.btn:hover .arrow{transform:translateX(3px)}
+.duo{position:relative;overflow:hidden;background:var(--navy)}
+.duo img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05) contrast(1.02);transition:transform .6s ease}
+.duo:hover img{transform:scale(1.05)}
+a:hover>.duo img{transform:scale(1.05)}
+.site-header{position:sticky;top:0;z-index:50;background:rgba(10,42,67,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.08)}
+.site-header .container{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:.7rem}.brand img{height:30px;width:auto}
+.nav{display:flex;align-items:center;gap:1.75rem}
+.nav a{font-family:var(--font-head);font-size:.9rem;color:rgba(255,255,255,.8);transition:color .2s ease}
+.nav a:hover,.nav a[aria-current="page"]{color:var(--aqua)}
+.hero{position:relative;color:var(--white);isolation:isolate;background:var(--navy);overflow:hidden}
+.hero-glow{position:absolute;inset:0;z-index:-1;overflow:hidden}
+.hero-glow span{position:absolute;border-radius:50%;will-change:transform}
+.hero-glow .g1{width:46vw;height:46vw;left:-8vw;top:-14vw;background:radial-gradient(circle,rgba(25,181,201,.30),rgba(25,181,201,0) 70%);animation:drift1 38s ease-in-out infinite alternate}
+.hero-glow .g2{width:50vw;height:50vw;right:-12vw;bottom:-20vw;background:radial-gradient(circle,rgba(54,208,226,.22),rgba(54,208,226,0) 70%);animation:drift3 46s ease-in-out infinite alternate}
+.hero-schematic{position:absolute;inset:0;z-index:-1;display:flex;align-items:center;justify-content:center;color:var(--aqua);opacity:.26}
+.hero-schematic svg{width:118%;min-width:980px;height:auto}
+.hero-overlay{position:absolute;inset:0;z-index:-1;background:radial-gradient(120% 90% at 65% 25%,transparent,rgba(7,26,43,.72))}
+.hero .container{padding-block:clamp(5rem,16vh,10rem)}
+.hero h1{max-width:16ch;margin-bottom:1.5rem}
+.hero .lead{color:rgba(255,255,255,.85);margin-bottom:2.25rem}
+.hero-actions{display:flex;flex-wrap:wrap;gap:1rem}
+.split{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:center}
+.stat-row{display:flex;flex-wrap:wrap;gap:2.5rem;margin-top:2.5rem}
+.stat .value{font-family:var(--font-head);font-size:2.4rem;color:var(--ocean);line-height:1}
+.stat .label{font-size:.85rem;color:var(--slate);margin-top:.4rem;max-width:16ch}
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.service{background:var(--white);padding:clamp(1.75rem,3vw,2.75rem)}
+.service .no{font-family:var(--font-head);color:var(--aqua);font-size:.9rem;letter-spacing:.1em}
+.service h3{font-size:1.4rem;margin:.5rem 0 .85rem}
+.service p{color:var(--slate);font-size:.98rem}
+.work-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
+.work-card .duo{aspect-ratio:4/3;border-radius:var(--radius)}
+.work-card h3{font-size:1.05rem;margin-top:.9rem}
+.work-card .cat{font-size:.8rem;color:var(--aqua);font-family:var(--font-head);letter-spacing:.04em}
+.team-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1.25rem}
+.member .duo{aspect-ratio:3/4;border-radius:var(--radius)}
+.member h4{font-size:1rem;margin-top:.75rem}.member .role{font-size:.82rem;color:var(--slate)}
+.cta-band{text-align:center}.cta-band h2{margin-bottom:1.5rem}
+.site-footer{background:var(--navy);color:rgba(255,255,255,.75);padding-block:clamp(3rem,6vw,4.5rem)}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem}
+.site-footer img.flogo{height:38px;margin-bottom:1.25rem}
+.site-footer h5{font-family:var(--font-head);color:var(--white);font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 1rem}
+.site-footer a:hover{color:var(--aqua)}
+.footer-bottom{margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.82rem}
+.previewbar{background:#111;color:#fff;font-family:var(--font-head);font-size:.8rem;text-align:center;padding:.5rem;letter-spacing:.05em}
+@media(max-width:900px){.split{grid-template-columns:1fr}.work-grid{grid-template-columns:repeat(2,1fr)}.team-grid{grid-template-columns:repeat(3,1fr)}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.nav{display:none}.services-grid{grid-template-columns:1fr}.team-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr}.stat-row{gap:1.5rem}}
+</style>
+</head>
+<body>
+<div class="site-bg" aria-hidden="true">
+  <div class="cloud cloud-1"></div>
+  <div class="cloud cloud-2"></div>
+  <div class="cloud cloud-3"></div>
+  <div class="bg-schematic"><svg viewBox="0 0 1200 420" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><rect x="70" y="108" width="120" height="84" rx="8"/><path d="M84 132 q14 -10 28 0 t28 0 t28 0"/><path d="M190 150 H238"/><circle cx="260" cy="150" r="22"/><path d="M251 139 L274 150 L251 161 Z"/><path d="M282 150 H336"/><rect x="336" y="104" width="56" height="92" rx="28"/><path d="M344 168 H384"/><path d="M392 150 H470"/><path d="M414 142 L414 158 L422 150 Z"/><path d="M430 142 L430 158 L422 150 Z"/><rect x="470" y="122" width="92" height="56" rx="6"/><path d="M484 150 q9 -15 18 0 t18 0 t18 0"/><path d="M562 150 H636"/><circle cx="600" cy="116" r="12"/><path d="M600 116 L607 109"/><path d="M600 128 V138"/><rect x="636" y="130" width="24" height="40" rx="12"/><path d="M660 150 H900 V250"/><path d="M708 144 L716 150 L708 156"/><rect x="740" y="250" width="360" height="140" rx="16"/><path d="M760 292 q24 -12 48 0 t48 0 t48 0 t48 0 t48 0 t48 0"/><path d="M760 318 q24 -12 48 0 t48 0 t48 0 t48 0 t48 0 t48 0"/><path d="M760 344 q24 -12 48 0 t48 0 t48 0 t48 0 t48 0 t48 0"/><path d="M740 330 H150 V192"/><circle cx="430" cy="330" r="20"/><path d="M439 320 L418 330 L439 340 Z"/><path d="M250 322 L250 338 L242 330 Z"/><path d="M266 322 L266 338 L242 330 Z"/><path d="M560 336 L552 330 L560 324"/><path d="M610 336 L602 330 L610 324"/></svg></div>
+</div>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="#" aria-label="Aquatic One home"><img src="https://www.aquatic.one/wp-content/uploads/2017/06/AquaticOne_Primary_Reversed_Logo.png" alt="Aquatic One" /></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#" aria-current="page">Our Company</a>
+      <a href="#work">Our Work</a>
+      <a href="#contact">Contact</a>
+      <a href="#">Careers</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-glow" aria-hidden="true"><span class="g1"></span><span class="g2"></span></div>
+    <div class="hero-schematic" aria-hidden="true"><svg viewBox="0 0 1200 420" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><rect x="70" y="108" width="120" height="84" rx="8"/><path d="M84 132 q14 -10 28 0 t28 0 t28 0"/><path d="M190 150 H238"/><circle cx="260" cy="150" r="22"/><path d="M251 139 L274 150 L251 161 Z"/><path d="M282 150 H336"/><rect x="336" y="104" width="56" height="92" rx="28"/><path d="M344 168 H384"/><path d="M392 150 H470"/><path d="M414 142 L414 158 L422 150 Z"/><path d="M430 142 L430 158 L422 150 Z"/><rect x="470" y="122" width="92" height="56" rx="6"/><path d="M484 150 q9 -15 18 0 t18 0 t18 0"/><path d="M562 150 H636"/><circle cx="600" cy="116" r="12"/><path d="M600 116 L607 109"/><path d="M600 128 V138"/><rect x="636" y="130" width="24" height="40" rx="12"/><path d="M660 150 H900 V250"/><path d="M708 144 L716 150 L708 156"/><rect x="740" y="250" width="360" height="140" rx="16"/><path d="M760 292 q24 -12 48 0 t48 0 t48 0 t48 0 t48 0 t48 0"/><path d="M760 318 q24 -12 48 0 t48 0 t48 0 t48 0 t48 0 t48 0"/><path d="M760 344 q24 -12 48 0 t48 0 t48 0 t48 0 t48 0 t48 0"/><path d="M740 330 H150 V192"/><circle cx="430" cy="330" r="20"/><path d="M439 320 L418 330 L439 340 Z"/><path d="M250 322 L250 338 L242 330 Z"/><path d="M266 322 L266 338 L242 330 Z"/><path d="M560 336 L552 330 L560 324"/><path d="M610 336 L602 330 L610 324"/></svg></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container">
+      <p class="eyebrow">National aquatic design engineers</p>
+      <h1 class="h-display">Design. Engineer. Deliver.</h1>
+      <p class="lead">Aquatic One is a national company delivering complete professional engineered designs for every aspect of the aquatic industry.</p>
+      <div class="hero-actions">
+        <a class="btn btn--primary" href="#work">View our work <span class="arrow">→</span></a>
+        <a class="btn btn--ghost" href="#contact">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div>
+        <p class="eyebrow">Who we are</p>
+        <h2 class="h-xl">Aquatic One is a national company delivering complete professional engineered designs for every aspect of the aquatic industry.</h2>
+      </div>
+      <div>
+        <p class="lead">From competition swimming pools to high-thrill waterslides, we strive to exceed client expectations with efficient, sustainable and cutting-edge solutions.</p>
+        <div class="stat-row">
+          <div class="stat"><div class="value">28</div><div class="label">Projects in portfolio</div></div>
+          <div class="stat"><div class="value">National</div><div class="label">Coverage across Australia</div></div>
+          <div class="stat"><div class="value">4</div><div class="label">Disciplines, concept to compliance</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--mist">
+    <div class="container">
+      <p class="eyebrow">What we do</p>
+      <h2 class="h-xl" style="max-width:22ch;margin-bottom:2.5rem">Complete engineered design, from first concept to final compliance.</h2>
+      <div class="services-grid">
+        <article class="service"><span class="no">01</span><h3>Conceptualisation</h3><p>Getting your project off the ground requires accurate, timely advice. We guide the early stages with pool concept design, spatial and services coordination, and operating and capital cost expenditure analyses.</p></article>
+        <article class="service"><span class="no">02</span><h3>Development</h3><p>Drawing on extensive experience with aquatic facilities, we develop your concept into a complete detailed design — integrated hydraulic, structural and finishes services. Buildable, coordinated designs delivered in Revit, AutoCAD and Inventor with full BIM integration.</p></article>
+        <article class="service"><span class="no">03</span><h3>Delivery</h3><p>To ensure smooth delivery throughout construction, we offer full contract administration support — shop drawing and technical submission reviews, inspections, supervision and commissioning assistance.</p></article>
+        <article class="service"><span class="no">04</span><h3>Compliance</h3><p>Aquatic facilities contain high-risk, expensive capital equipment. We provide compliance services — resolving operation and maintenance problems, maintenance planning, and facility audits that enhance operator and patron safety.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="work">
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem">
+        <div><p class="eyebrow">Our latest work</p><h2 class="h-xl">Selected projects</h2></div>
+        <a class="btn btn--dark" href="#">Full portfolio <span class="arrow">→</span></a>
+      </div>
+      <div class="work-grid">
+        <a class="work-card" href="#"><div class="duo"><img src="https://www.aquatic.one/wp-content/uploads/2020/07/Northam-Aquatic-4-1-400x284.jpg" alt="Northam Aquatic Centre" /></div><span class="cat">Public Aquatic Space</span><h3>Northam Aquatic Centre</h3></a>
+        <a class="work-card" href="#"><div class="duo"><img src="https://www.aquatic.one/wp-content/uploads/2020/06/Queens-Wharf-3-400x284.jpg" alt="Queens Wharf Brisbane" /></div><span class="cat">Public Aquatic Space</span><h3>Queens Wharf Brisbane</h3></a>
+        <a class="work-card" href="#"><div class="duo"><img src="https://www.aquatic.one/wp-content/uploads/2020/06/Miami-3-Credit-GCCC-2-400x284.jpg" alt="Miami Aquatic Centre" /></div><span class="cat">Competition / Lap Pool</span><h3>Miami Aquatic Centre</h3></a>
+        <a class="work-card" href="#"><div class="duo"><img src="https://www.aquatic.one/wp-content/uploads/2019/05/Wynnum-4-700x525-400x284.jpg" alt="Wynnum Aquaplay" /></div><span class="cat">Public Aquatic Space</span><h3>Wynnum Aquaplay</h3></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--mist">
+    <div class="container">
+      <p class="eyebrow">Meet the team</p>
+      <h2 class="h-xl" style="margin-bottom:2.5rem">The people behind the designs.</h2>
+      <div class="team-grid">
+        <div class="member"><div class="duo duo--soft"><img src="https://www.aquatic.one/wp-content/uploads/2023/05/4T3A0567.jpg" alt="Luke" /></div><h4>Luke</h4><p class="role">Director</p></div>
+        <div class="member"><div class="duo duo--soft"><img src="https://www.aquatic.one/wp-content/uploads/2023/05/4T3A0538.jpg" alt="Chris" /></div><h4>Chris</h4><p class="role">Drafting Lead</p></div>
+        <div class="member"><div class="duo duo--soft"><img src="https://www.aquatic.one/wp-content/uploads/2024/04/4T3A8857-1.jpg" alt="Megan" /></div><h4>Megan</h4><p class="role">Drafter</p></div>
+        <div class="member"><div class="duo duo--soft"><img src="https://www.aquatic.one/wp-content/uploads/2025/03/4T3A5208-1.jpg" alt="Eryk" /></div><h4>Eryk</h4><p class="role">Drafter</p></div>
+        <div class="member"><div class="duo duo--soft"><img src="https://www.aquatic.one/wp-content/uploads/2023/05/4T3A0583-683x1024.jpg" alt="Gavin" /></div><h4>Gavin</h4><p class="role">Senior Design Engineer</p></div>
+        <div class="member"><div class="duo duo--soft"><img src="https://www.aquatic.one/wp-content/uploads/2023/05/4T3A0546.jpg" alt="Tim" /></div><h4>Tim</h4><p class="role">Drafting Lead</p></div>
+        <div class="member"><div class="duo duo--soft"><img src="https://www.aquatic.one/wp-content/uploads/2023/10/Brandon-scaled.jpeg" alt="Brandon" /></div><h4>Brandon</h4><p class="role">Engineer</p></div>
+        <div class="member"><div class="duo duo--soft"><img src="https://www.aquatic.one/wp-content/uploads/2023/05/4T3A0553.jpg" alt="Rowan" /></div><h4>Rowan</h4><p class="role">Design Engineer</p></div>
+        <div class="member"><div class="duo duo--soft"><img src="https://www.aquatic.one/wp-content/uploads/2023/05/4T3A0521.jpg" alt="Claire" /></div><h4>Claire</h4><p class="role">Office Manager</p></div>
+        <div class="member"><div class="duo duo--soft"><img src="https://www.aquatic.one/wp-content/uploads/2023/10/Jason.jpeg" alt="Jason" /></div><h4>Jason</h4><p class="role">Drafter</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--navy" id="contact">
+    <div class="container cta-band">
+      <p class="eyebrow" style="justify-content:center">Like what you see?</p>
+      <h2 class="h-display" style="max-width:18ch;margin-inline:auto">Let's design your next aquatic project.</h2>
+      <div style="margin-top:2rem"><a class="btn btn--primary" href="#">Contact us <span class="arrow">→</span></a></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><img class="flogo" src="https://www.aquatic.one/wp-content/uploads/2017/06/AquaticOne_Primary_Reversed_Logo.png" alt="Aquatic One" /><p style="max-width:34ch">Aquatic One is a national company delivering complete professional engineered designs for every aspect of the aquatic industry.</p></div>
+      <div><h5>Navigate</h5><p><a href="#">Our Company</a></p><p><a href="#work">Our Work</a></p><p><a href="#contact">Contact</a></p><p><a href="#">Careers</a></p></div>
+      <div><h5>Headquarters</h5><p>Unit 2/10 Depot Street<br />Banyo QLD 4014</p><p style="margin-top:.75rem"><a href="tel:+61732677295">07 3267 7295</a></p><p>8am–5pm, Mon–Fri</p></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Aquatic One. All rights reserved.</span><span>Design. Engineer. Deliver.</span></div>
+  </div>
+</footer>
+</body>
+</html>
